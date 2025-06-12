@@ -70,4 +70,4 @@ Desktop.ini
 
 .env
 user_template.xlsx
-~$*.xlsx
+~$user_template.xlsx
