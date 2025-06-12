@@ -69,3 +69,5 @@ Desktop.ini
 .DS_Store
 
 .env
+user_template.xlsx
+~$*.xlsx
