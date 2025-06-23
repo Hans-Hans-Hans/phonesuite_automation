@@ -16,7 +16,7 @@ def create_user(driver):
     print(df.columns)
     
     for _, row in df.iterrows():
-        # Click the "Add User" button (replace with actual selector)
+        # Click the "Add User" button (replace with actual selector)Hampton Inn Hardeeville
         try:
             add_user_button = driver.find_element(By.LINK_TEXT, "Add User")
             add_user_button.click()
@@ -31,6 +31,7 @@ def create_user(driver):
         driver.find_element(By.NAME, "firstnam").send_keys(row["firstname"])
         driver.find_element(By.NAME, "passwd").send_keys(str(row["password"]))
         driver.find_element(By.NAME, "passwdc").send_keys(str(row["password"]))
+        driver.find_element(By.NAME, "pin2").clear()
         driver.find_element(By.NAME, "pin2").send_keys(str(row["pin"]))
         
         # Normalize the string from Excel
@@ -79,8 +80,9 @@ def create_user(driver):
         )
         add_device_select = Select(add_device_select_elem)
         add_device_select.select_by_visible_text("Add New")
-        driver.find_element(By.NAME, "device_nam").send_keys(str(row["devicename"]))
+        #driver.find_element(By.NAME, "device_nam").send_keys(str(row["devicename"]))
         driver.find_element(By.NAME, "eCNAM").send_keys(str(row["dispatchablelocation"]))
+        driver.find_element(By.NAME, "secret2").clear()
         driver.find_element(By.NAME, "secret2").send_keys(str(row["secret"]))
         driver.find_element(By.NAME, "sip_calllimit").clear()
         driver.find_element(By.NAME, "sip_calllimit").send_keys(str(row["calllimit"]))
@@ -89,7 +91,8 @@ def create_user(driver):
         #driver.find_element(By.ID, "submit-user-btn").click()
 
         print(f"User '{row['username']}' submitted.")
-        driver.find_element(By.NAME, "action[viewusers]").click()
+        driver.find_element(By.NAME, "action[add_new_user]").click()
+        time.sleep(0.5)
 
         #time.sleep(2)  # Wait for confirmation or return to the list before next loop
             

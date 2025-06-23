@@ -13,6 +13,7 @@ load_dotenv(override=True)
 
 # Get credentials and URL from environment variables
 url: str = os.getenv('url')
+print(url)
 uname: str = os.getenv('usern')
 pword: str = os.getenv('pword')
 
